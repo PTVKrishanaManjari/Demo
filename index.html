@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>TODO</title>
+<style type="">
+
+.topnav {
+position:relative;
+z-index:2;
+font-size:17px;
+background-color:#5f5f5f;
+margin-top:10px;
+color:#f1f1f1;
+width:100%;
+padding:0;
+letter-spacing:1px;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+.topnav a{
+padding:10px 12px 9px 15px !important;
+
+}
+.topnav .w3-bar a:hover,.topnav .w3-bar a:focus{
+background-color:#000000 !important;
+color:#ffffff !important;
+}
+#demo{
+    margin-top:30px;
+    text-align: center;
+    font-family: :Trebuchet MS, sans-serif;
+    font-weight: 100px;
+    font-size: 25px;
+}
+/*td:nth-child(2) {
+    padding-right: 20px;
+}​*/
+body{
+    background-color:#EEEEEE;
+}
+.todolist{
+    background-color:#FFF;
+    padding:20px 20px 10px 20px;
+    margin-top:30px;
+}
+.todolist h1{
+    margin:0;
+    padding-bottom:20px;
+    text-align:center;
+}
+
+.items{
+    background-color:#F4FCE8;
+    margin:0 -20px -10px -20px;
+    padding: 10px 20px;
+}
+
+
+.container{
+	margin-left: 400px;
+
+}
+input:checked {
+    height: 20px;
+    width: 20px;
+}
+body {
+  margin: 0;
+  min-width: 50px;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  text-align: left;
+ 
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+
+/* Style the header */
+.header {
+  
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  border: none;
+  width: 90%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  margin-left: -20px;
+  background-color: #909497  ;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  
+  width: 14%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: -50px;
+  padding: 10px 46px;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+#myUL{
+	width: 555px;
+	margin-left: -20px;
+}
+#cb{
+	float:left;
+}
+
+	</style>
+	<!-- <script type="text/javascript">
+		function my_fun(j){
+
+										var chkbox ="ckb" + j;
+
+										var my_span ="my_span" + j;
+
+										var msg = chkbox + "  " + my_span;
+
+										if(document.getElementById(chkbox).checked){ 
+
+										document.getElementById(my_span).style.textDecoration='line-through';
+
+										}else{
+
+										document.getElementById(my_span).style.textDecoration='none';
+
+										}
+
+										}
+	</script> -->
+</head>
+<body>
+	<div class='w3-card-2 topnav' id='topnav'>
+ 	 	<div style="overflow:auto;">
+		    <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:44px">
+		      <a class="btn btn-success" href='#' title='My Tasks' style="margin-left:420px;color:white;text-decoration: none;background-color: green;height:50px";>MY TASKS</a>
+		        <a class="button" href='#' title='Focus Mode' style="margin-left:50px;color:white;text-decoration: none";>FOCUS MODE</a>
+		          <a class="button" href='#' title='History' style="margin-left:50px;color:white;text-decoration: none";>HISTORY</a>
+		            <a class="button" href='#' title='Settings' style="margin-left:50px;color:white;text-decoration: none";>SETTINGS</a>
+		            <a class="button" href='#' title='LOG IN' style="margin-left:170px;color:white;text-decoration: none";>LOG IN</a>
+		    </div>
+      	</div>
+	</div>
+	<div>
+
+	 	<div>
+	 	 	<br>
+		 	 <table align="center">
+			 	 <tr>
+				 	 <td class="fa fa-arrow-circle-o-left" style="font-size:36px;padding-right: 10px";></td>
+				 	 <td id="demo" style="font-size:26px;padding-right: 10px";></td>
+				 	 <td class="fa fa-arrow-circle-o-right" style="font-size:36px";></td>
+				</tr>
+			</table>	
+				<script>
+			        var d = new Date();
+			        var w;
+			       switch(d.getDay())
+			       {
+			          case 1: c="Mon";break;
+			          case 2: c="Tue";break;
+			          case 3: c="Wed";break;
+			          case 4: c="Thu";break;
+			          case 5: c="Fri";break;
+			          case 6: c="Sat";break;
+			          case 7: c="Sun";break;
+					}
+					var m;
+					switch(d.getMonth())
+			       	{
+			          case 0: m="Jan";break;
+			          case 1: m="Feb";break;
+
+			          case 2: m="Mar";break;
+			          case 3: m="Apr";break;
+
+			          case 4: m="May";break;
+			          case 5: m="Jun";break;
+
+			          case 6: m="Jul";break;
+			          case 7: m="Aug";break;
+			          case 8: m="Sep";break;
+			          case 9: m="Oct";break;
+			          case 10: m="Nov";break;
+			          case 11: m="Dec";break;
+			        }
+					var dat=d.getDate();
+
+					var l;
+					if(dat==1 || dat==11 || dat==21 || dat==31){
+					  l='st';
+					}
+					else if(dat==2 || dat==22 || dat==12)
+					{
+					  l='nd';
+					}
+					else if(dat==3 || dat==13 || dat==23){
+					  l='rd';
+					}
+					else
+					l='th';
+
+					document.getElementById("demo").innerHTML=c +","+" "+" "+ m +"  "+ dat+l;
+
+				</script>
+			
+		
+		</div>
+	 	 	
+	 	<div>
+		 	<!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+		 		
+					<div class="container">
+					    <div class="row">
+					        <div class="col-md-6">
+					            <div class="todolist not-done">
+					             <center><h4>What are your five most important items to do today?</h4></center>
+					             <br>
+					               
+					                	<!--<input type="checkbox" id="ckb1" value="1" onclick="my_fun(1);">
+                                     <span id="my_span1" style="text-decoration: none;">Citizen parking IOS build</span>-->
+                                     <div id="myDIV" class="header">
+					  <input type="text" id="myInput" placeholder="Title...">
+					  <span onclick="addItem()" class="addBtn"><center>Add</center></span>
+					</div>
+
+					<ul id="myUL">
+					  
+					</ul>
+					              
+					                <script type="text/javascript">
+
+										
+
+									</script>
+					                <br>
+					                <div class="items">
+					                    <strong><span class="count-todos"></span></strong> <a href="#" style="text-decoration: none;"><h4 style="color: #757271">You have room for four more tasks<h4></a>
+					                </div>
+					            </div>
+					        </div>
+					        
+					    </div>
+					</div>
+					
+					<script>
+
+					// Create a new list item when clicking on the "Add" button
+					// function newElement() {
+					// 	var ul = document.getElementById("myUL");
+					// 	if(ul.children.length<5){
+					// 	var checkbox = document.createElement("input");
+					//   var li = document.createElement("li");
+					//   var inputValue = document.getElementById("myInput").value;
+					//   var t = document.createTextNode(inputValue);
+					//   checkbox.setAttribute("type","checkbox");
+					//   li.appendChild(checkbox);
+					//   li.appendChild(t);
+					//   if (inputValue === '') {
+					//     alert("You must write something!");
+					//   } else {
+					//     document.getElementById("myUL").appendChild(li);
+					//   }
+					//   document.getElementById("myInput").value = "";
+
+					//  }
+					//  else{
+					//  	alert("allowed only 5");
+					//  }					  
+					// }
+				
+// 					function addItem() {
+//     var ul = document.getElementById("myUL");
+//     var inputValue = document.getElementById("myInput").value;
+//     var li = document.createElement("li");
+//     var t = document.createTextNode(inputValue);
+
+//     /*appending checkbox*/
+
+//     var checkBox = document.createElement("input");
+//     checkBox.type = "checkbox";
+//     checkBox.id = "cb";
+//     checkBox.onclick = updateItem.bind(checkBox);
+
+//     /*appending deletbutton*/
+
+
+//     var deleteBtn = document.createElement("a");
+//     deleteBtn.href = "#";
+//     deleteBtn.innerHTML = 'del';
+//     deleteBtn.addEventListener('click', removeItem);
+
+//     /*checking condition that only 5 tasks r taken in*/
+
+//     if (inputValue === '') {
+//         alert("You must write something");
+//     } else {
+//         if (ul.children.length < 5) {
+//             document.getElementById("myUL").appendChild(li);
+//             li.appendChild(checkBox);
+//             li.appendChild(t);
+//             li.appendChild(deleteBtn);
+//             document.getElementById("myInput").value = "";
+//             var list = document.getElementById("myUL");
+//             list.insertBefore(li, list.childNodes[ul.children.length]);
+//         } else {
+//             document.getElementById("myInput").value = "";
+//             alert("Check the limit");
+//         }
+//     }
+
+//     function updateItem() {
+//         console.log('paren', this.parentNode.childNodes);
+//         if (this.checked) {
+//             this.inputVa.style.textDecoration = "line-through";
+//         } else {
+//             this.t.style.textDecoration = "none";
+//         }
+//     }
+// }
+
+// function removeItem() {
+//     var li = this.parentNode;
+//     li.remove();
+// }
+
+					</script>
+
+
+	 	</div>
+	 </div>
+
+	
+
+</body>
+</html>
+
+.myinput.large.custom[type="checkbox"]:checked:after {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGHRFWHRBdXRob3IAbWluZWNyYWZ0aW5mby5jb23fZidLAAAAk0lEQVQ4y2P4//8/AyUYwcAD+OzN/oMwshjRBoA0Gr8+DcbIhhBlAEyz+qZZ/7WPryHNAGTNMOxpJvo/w0/uP0kGgGwGaZbrKgfTGnLc/0nyAgiDbEY2BCRGdCDCnA2yGeYVog0Aae5MV4c7Gzk6CRqAbDM2w/EaQEgzXgPQnU2SAcTYjNMAYm3GaQCxNuM0gFwMAPUKd8XyBVDcAAAAAElFTkSuQmCC'), linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+}
+
+.myinput.large.custom[type="checkbox"]:not(:disabled):checked:hover:after {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGHRFWHRBdXRob3IAbWluZWNyYWZ0aW5mby5jb23fZidLAAAAk0lEQVQ4y2P4//8/AyUYwcAD+OzN/oMwshjRBoA0Gr8+DcbIhhBlAEyz+qZZ/7WPryHNAGTNMOxpJvo/w0/uP0kGgGwGaZbrKgfTGnLc/0nyAgiDbEY2BCRGdCDCnA2yGeYVog0Aae5MV4c7Gzk6CRqAbDM2w/EaQEgzXgPQnU2SAcTYjNMAYm3GaQCxNuM0gFwMAPUKd8XyBVDcAAAAAElFTkSuQmCC'), linear-gradient(135deg, #8BB0C2 0%, #FFF 100%);
+}
+
+<input type="checkbox" class="myinput large custom" /></td>

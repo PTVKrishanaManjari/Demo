@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="script.js">
+        <title>TODO</title>
+        <link rel="stylesheet" type="text/css" href="todo.css">
+    </head>
+    <style>
+body         { font-size : 20px ;  background-size : 1350px; background-repeat : no-repeat ; background-position : center ;}
+.aa{
+  width:420px;
+  height:230px;
+  background-color:rgba(0,0,0,0.5);
+  margin:0 auto;
+  margin-top:40px;
+  padding-top:10px;
+  padding-left:50px;
+  boarder-radius:15px;
+  -webkit-border-radius:15px;
+  -o-border-radius:15px;
+  -moz-border-radius:15px;
+  color:white;
+  font-weight:bolder;
+}
+.aa input[type="text"]{
+width:200px;
+height:35px;
+border:0;
+color: black;
+border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+-moz-border-radius:5px;
+}
+.aa input[type="password"]{
+width:200px;
+height:35px;
+border:0;
+color: black;
+border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+-moz-border-radius:5px;
+} 
+#password {
+    
+    padding-bottom: .5em;
+    margin-top: 25px;
+}
+#myusername{
+  margin-top: 15px;
+}
+
+</style>
+    <body>
+
+        <div class='w3-card-2 topnav' id='topnav'>
+            <div style="overflow:auto;">
+                <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:44px">
+                    <a class="btn btn-success" href='todo.html' title='My Tasks' style="margin-left:420px;color:white;text-decoration: none;background-color: green;height:50px";>MY TASKS</a>
+                    <a class="button" href='#' title='Focus Mode' style="margin-left:50px;color:white;text-decoration: none";>FOCUS MODE</a>
+                    <a class="button" href='#' title='History' style="margin-left:50px;color:white;text-decoration: none";>HISTORY</a>
+                    <a class="button" href='#' title='Settings' style="margin-left:50px;color:white;text-decoration: none";>SETTINGS</a>
+                    <a class="button" href='login.html' title='LOG IN' style="margin-left:170px;color:white;text-decoration: none"; >LOG IN</a>
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <div>
+          
+                <table align="center">
+                    <tr>
+                        <td class="fa fa-arrow-circle-o-left" id="demo"style="font-size:36px;padding-right: 10px"; onclick="previous()"></td>&nbsp;
+                        <td  style="font-size:26px;""></td>
+                        <td class="fa fa-arrow-circle-o-right" style="font-size:36px;margin-top: 30px"; onclick="tomorrow()"></td>
+                    </tr>
+                </table>    
+                <script type="text/javascript" src="datescript.js"></script>
+             </div>
+      
+    
+
+<script>
+function validate()
+{
+var name = document.getElementById("myusername").value;
+
+var password = document.getElementById("password").value;
+
+var nameformat= /^[a-zA-Z]*$/;
+
+var passwordformat= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/; 
+
+if(!name.match(nameformat))  
+  {  
+    alert('Username must have alphabet characters only');  
+    return false;  
+  } 
+
+else if(!password.match(passwordformat))
+{
+  alert("Your password must contain atleast one special character, one digit, one uppercase and one lowercase and lenth should between 8 to 15!");  
+  return false;
+  }
+
+}
+</script>
+
+<div class="aa">
+
+<!-- <center><br><br>
+  <h1 style="color:green">Member Registration</h1>
+</center> -->
+<table width="300" border="0"  cellpadding="0"
+  cellspacing="4" >
+
+  <tr>
+    <form name="form1" method="post"  action="todo.html" onsubmit="return validate()">
+
+      <td>
+        <table width="100%" border="0" cellpadding="3" cellspacing="2">
+          <tr>
+             <td style="text-align: center;" colspan="4">
+               <h1 style="color:white";></h1>
+              </td>
+             </tr>
+          <tr>
+            <td width="68"></td><td style="color:white";>Username</td>
+            <td> </td><td> </td>
+            <td width="294"><input name="myusername" type="text"
+              id="myusername" required></td>
+          </tr>
+         <tr>
+          </tr>
+          <tr>
+            <td width="68"></td><td style="color:white";>Password</td>
+            <td> </td><td> </td>
+            <td width="294"><input name="password" type="password" id="password" required></td>
+          </tr>
+          
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+
+          </tr>
+        </table>
+      </td>
+      <tr><td>
+      <center><input style="color:blue;margin-bottom: 20px;border-radius:15px 15px 15px 15px";  type="submit" name="Submit" value="Login" id="sub" ></center></td></tr>
+    </form>
+  </tr>
+</table>
+
+<br>
+<center>
+<script type="text/javascript">
+
+var blink_speed = 500;
+//var t = setInterval(function () {
+  //  var ele = document.getElementById('blinker');
+    //ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
+//}, blink_speed);
+
+</script>
+
+ 
+</center>
+</div>
+
+
+
+             
+
+           
+    <script type="text/javascript" src="script.js">
+        
+
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+                     
+                     <!-- <td id="demo" ></td> -->
+                   <table>
+                  <td><i class="fa fa-arrow-circle-o-right" id="demo"  onclick="tomorrow()"/></td>
+                </table>
+				<script>
+					function tomorrow(){
+                   
+                    var t=new Date();
+                    var w;
+                    t.setDate(t.getDate() + 1);
+                   switch(t.getDay())
+                   {
+                      case 1: c="Mon";break;
+                      case 2: c="Tue";break;
+                      case 3: c="Wed";break;
+                      case 4: c="Thu";break;
+                      case 5: c="Fri";break;
+                      case 6: c="Sat";break;
+                      case 7: c="Sun";break;
+                    }
+                    var m;
+                    switch(t.getMonth())
+                    {
+                      case 0: m="Jan";break;
+                      case 1: m="Feb";break;
+
+                      case 2: m="Mar";break;
+                      case 3: m="Apr";break;
+
+                      case 4: m="May";break;
+                      case 5: m="Jun";break;
+
+                      case 6: m="Jul";break;
+                      case 7: m="Aug";break;
+                      case 8: m="Sep";break;
+                      case 9: m="Oct";break;
+                      case 10: m="Nov";break;
+                      case 11: m="Dec";break;
+                    }
+                   // var dat=d.setDate(d.getDate() - 2);
+                    var dat=t.getDate();
+
+
+                    var l;
+                    if(dat==1 ||  dat==21 || dat==31){
+                      l='st';
+                    }
+                    else if(dat==2 || dat==22 || dat==12)
+                    {
+                      l='nd';
+                    }
+                    else if(dat==3 || dat==13 || dat==23){
+                      l='rd';
+                    }
+                    else
+                    l='th';
+                
+                    document.getElementById("demo").innerHTML=c +","+" "+" "+ m +"  "+ dat+l;
+                    }
+                </script>
+                  
+            </body>
+            </html>

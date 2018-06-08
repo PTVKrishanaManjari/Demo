@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>TODO</title>
+</head>
+<body>
+<script type="text/javascript">
+function addItem() {
+    var ul = document.getElementById("myUL");
+    var inputValue = document.getElementById("myInput").value;
+    var li = document.createElement("li");
+    var t = document.createTextNode(inputValue);
+
+    /*appending checkbox*/
+
+    var checkBox = document.createElement("input");
+    checkBox.type = "checkbox";
+    checkBox.id = "cb";
+    checkBox.onclick = updateItem.bind(checkBox);
+
+    /*appending deletbutton*/
+
+
+    var deleteBtn = document.createElement("a");
+    deleteBtn.href = "#";
+    deleteBtn.innerHTML = 'del';
+    deleteBtn.addEventListener('click', removeItem);
+
+    /*checking condition that only 5 tasks r taken in*/
+
+    if (inputValue === '') {
+        alert("You must write something");
+    } else {
+        if (ul.children.length < 5) {
+            document.getElementById("myUL").appendChild(li);
+            li.appendChild(checkBox);
+            li.appendChild(t);
+            li.appendChild(deleteBtn);
+            document.getElementById("myInput").value = "";
+            var list = document.getElementById("myUL");
+            list.insertBefore(li, list.childNodes[ul.children.length]);
+        } else {
+            document.getElementById("myInput").value = "";
+            alert("Check the limit");
+        }
+    }
+
+    function updateItem() {
+        console.log('paren', this.parentNode.childNodes);
+        if (this.checked) {
+            this.inputVa.style.textDecoration = "line-through";
+        } else {
+            this.t.style.textDecoration = "none";
+        }
+    }
+}
+
+function removeItem() {
+    var li = this.parentNode;
+    li.remove();
+}
+</script>
+<input type="text" name="" id="inputValue">
+</body>
+</html>
